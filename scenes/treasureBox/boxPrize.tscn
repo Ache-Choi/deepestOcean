@@ -1,0 +1,394 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://scenes/treasureBox/boxPrize.gd" type="Script" id=1]
+[ext_resource path="res://scenes/treasureBox/images/chooseItem-min1.png" type="Texture" id=2]
+[ext_resource path="res://scenes/treasureBox/boxSingle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/fonts/SHOWG.TTF" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/images/firstPage/assets1280x720.png" type="Texture" id=5]
+[ext_resource path="res://assets/fonts/AGENCYB.TTF" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 200
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 60
+outline_size = 3
+outline_color = Color( 0.717647, 0, 0.658824, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 28
+outline_size = 3
+outline_color = Color( 0.345098, 0.101961, 0.0392157, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 28
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "fadeIn"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.054902, 0.184314, 0 ), Color( 0, 0.054902, 0.184314, 0.803922 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("descriptionMsg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "fadeIn"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.054902, 0.184314, 0 ), Color( 0, 0.054902, 0.184314, 0.803922 ) ]
+}
+
+[node name="treasureBox" type="Node2D"]
+pause_mode = 2
+modulate = Color( 1, 1, 1, 0 )
+script = ExtResource( 1 )
+singleBox = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 720.0
+margin_bottom = 1280.0
+color = Color( 0, 0.054902, 0.184314, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="panel" type="Sprite" parent="."]
+modulate = Color( 0.623529, 0.913725, 1, 1 )
+position = Vector2( 360.407, 367.081 )
+scale = Vector2( 1.14026, 0.693827 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( -21.3298, -14.1757, 571.378, 815.752 )
+
+[node name="descriptionMsg" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 133.396
+margin_top = 945.001
+margin_right = 564.396
+margin_bottom = 1135.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0.0117647, 0.0745098, 0.32549, 0.776471 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 6
+text = "choose  an item"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="boxContainer" type="Node2D" parent="."]
+
+[node name="gemBtnCont" type="Node2D" parent="."]
+
+[node name="ggSprite" type="Sprite" parent="gemBtnCont"]
+position = Vector2( 130.618, 760.577 )
+texture = ExtResource( 2 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 219, 68, 424, 251 )
+
+[node name="gemBtns" type="Node2D" parent="gemBtnCont"]
+position = Vector2( -27.59, 0 )
+
+[node name="greenGbtn" type="Button" parent="gemBtnCont/gemBtns"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 335.138
+margin_top = 770.961
+margin_right = 433.138
+margin_bottom = 866.961
+text = "greengem"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="blueGbtn" type="Button" parent="gemBtnCont/gemBtns"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 467.095
+margin_top = 775.414
+margin_right = 558.095
+margin_bottom = 872.414
+text = "blue gem"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="redGbtn" type="Button" parent="gemBtnCont/gemBtns"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 205.981
+margin_top = 781.356
+margin_right = 302.984
+margin_bottom = 856.356
+text = "red gem"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coin" type="Button" parent="gemBtnCont/gemBtns"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 411.962
+margin_top = 892.781
+margin_right = 494.962
+margin_bottom = 967.781
+text = "star"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="oxygen" type="Button" parent="gemBtnCont/gemBtns"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 270.073
+margin_top = 895.251
+margin_right = 357.073
+margin_bottom = 969.251
+text = "energy ball"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="homeADbtnCont" type="Node2D" parent="gemBtnCont"]
+
+[node name="watchAD" type="Button" parent="gemBtnCont/homeADbtnCont"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 529.427
+margin_top = 1105.99
+margin_right = 648.427
+margin_bottom = 1195.99
+text = "watchAD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="homeBtn" type="Button" parent="gemBtnCont/homeADbtnCont"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 148.821
+margin_top = 1114.22
+margin_right = 215.821
+margin_bottom = 1177.22
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="boxBtn" type="Button" parent="gemBtnCont/homeADbtnCont"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 275.487
+margin_top = 1135.8
+margin_right = 425.487
+margin_bottom = 1236.8
+disabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gemInBoxCount" type="Label" parent="gemBtnCont"]
+visible = false
+margin_left = 224.356
+margin_top = 735.243
+margin_right = 462.356
+margin_bottom = 976.243
+custom_fonts/font = SubResource( 2 )
+text = "0"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="goBakcHome" type="Sprite" parent="gemBtnCont"]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 625.613, 1170.73 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 559, 13, 67, 56 )
+
+[node name="goBack" type="Button" parent="gemBtnCont"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 573.902
+margin_top = 1129.53
+margin_right = 666.902
+margin_bottom = 1217.53
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="boxStartPos" type="Position2D" parent="."]
+position = Vector2( 101.767, 148.853 )
+
+[node name="textcontainer" type="Node2D" parent="."]
+visible = false
+position = Vector2( -599.723, 619.882 )
+
+[node name="winLoseText" type="Label" parent="textcontainer"]
+margin_left = 721.971
+margin_top = 166.569
+margin_right = 1133.97
+margin_bottom = 265.569
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.831373, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.0509804, 0.0196078, 0.321569, 0.643137 )
+custom_constants/shadow_offset_x = 6
+custom_constants/shadow_offset_y = 7
+text = "You Win !!!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="descripText" type="Label" parent="textcontainer"]
+margin_left = 753.594
+margin_top = 273.644
+margin_right = 1126.59
+margin_bottom = 481.644
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.831373, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.0509804, 0.0196078, 0.321569, 0.643137 )
+custom_constants/shadow_offset_x = 6
+custom_constants/shadow_offset_y = 7
+text = "You have won 6 gems."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="watchADSprite" type="Sprite" parent="textcontainer"]
+position = Vector2( 870.919, 461.17 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 1040, 463, 121, 94 )
+
+[node name="boxSprite" type="Sprite" parent="textcontainer"]
+modulate = Color( 0.968627, 0.917647, 0.392157, 1 )
+position = Vector2( 1025.27, 459.233 )
+scale = Vector2( 0.657135, 1.22084 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 10, 318, 256, 89 )
+
+[node name="Label" type="Label" parent="textcontainer"]
+visible = false
+margin_left = 1047.0
+margin_top = 476.0
+margin_right = 1180.0
+margin_bottom = 547.0
+custom_fonts/font = SubResource( 5 )
+text = "Try again"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fadeIn = SubResource( 10 )
+anims/fadeOutPage = SubResource( 11 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/descMsgFadeIn = SubResource( 12 )
+anims/descMsgFadeOut = SubResource( 9 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 59.3971, 141.421 )
+[connection signal="pressed" from="gemBtnCont/gemBtns/greenGbtn" to="." method="_on_greenChosenBtn_pressed"]
+[connection signal="pressed" from="gemBtnCont/gemBtns/blueGbtn" to="." method="_on_blueGbtn_pressed"]
+[connection signal="button_up" from="gemBtnCont/gemBtns/redGbtn" to="." method="_on_redGbtn_button_up"]
+[connection signal="button_up" from="gemBtnCont/gemBtns/coin" to="." method="_on_starBtn_button_up"]
+[connection signal="button_up" from="gemBtnCont/gemBtns/oxygen" to="." method="_on_eBallBtn_button_up"]
+[connection signal="pressed" from="gemBtnCont/homeADbtnCont/watchAD" to="." method="_on_watchAD_pressed"]
+[connection signal="pressed" from="gemBtnCont/homeADbtnCont/homeBtn" to="." method="_on_homeBtn_pressed"]
+[connection signal="pressed" from="gemBtnCont/homeADbtnCont/boxBtn" to="." method="_on_boxBtn_pressed"]
+[connection signal="button_down" from="gemBtnCont/goBack" to="." method="_on_goBack_button_down"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

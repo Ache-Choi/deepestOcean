@@ -1,0 +1,225 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/ui/settings.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/firstPage/settingsPage.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/firstPage/assets1280x720.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/AGENCYB.TTF" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 2
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=2]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 0.4, 0.4, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("container:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 0.4, 0.4, 0.4 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 50 ), Vector2( 0, -720 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("container:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 0.4, 0.4, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -720 ), Vector2( 0, 50 ), Vector2( 0, 0 ) ]
+}
+
+[node name="settings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="container" type="Node2D" parent="."]
+position = Vector2( 0, -1280 )
+
+[node name="panel" type="Sprite" parent="container"]
+modulate = Color( 0.643137, 1, 0.890196, 1 )
+scale = Vector2( 0.890398, 1 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="x" type="Sprite" parent="container"]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 535.618, 305.058 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 558, 10, 66, 73 )
+
+[node name="soundCheck" type="Sprite" parent="container"]
+modulate = Color( 0, 1, 0.0392157, 1 )
+position = Vector2( 280.474, 341.815 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 638, 15, 79, 77 )
+
+[node name="musicCheck" type="Sprite" parent="container"]
+modulate = Color( 0, 1, 0.0392157, 1 )
+position = Vector2( 265.355, 467.911 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 633, 9, 81, 89 )
+
+[node name="btnContainer" type="Node2D" parent="container"]
+
+[node name="soundOn" type="Button" parent="container/btnContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 303.981
+margin_top = 399.078
+margin_right = 348.981
+margin_bottom = 443.078
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="soundOff" type="Button" parent="container/btnContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 395.466
+margin_top = 392.421
+margin_right = 440.466
+margin_bottom = 439.421
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="musicOn" type="Button" parent="container/btnContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 302.809
+margin_top = 477.392
+margin_right = 349.809
+margin_bottom = 526.392
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="musicOff" type="Button" parent="container/btnContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 394.637
+margin_top = 480.22
+margin_right = 446.637
+margin_bottom = 525.22
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quit" type="Button" parent="container/btnContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 504.0
+margin_top = 261.0
+margin_right = 579.0
+margin_bottom = 341.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="credits" type="Button" parent="container/btnContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 407.464
+margin_top = 925.33
+margin_right = 594.464
+margin_bottom = 985.33
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="positionsContainer" type="Node2D" parent="container"]
+
+[node name="soundOnPos" type="Position2D" parent="container/positionsContainer"]
+position = Vector2( 328.485, 420.354 )
+
+[node name="soundOffPos" type="Position2D" parent="container/positionsContainer"]
+position = Vector2( 419.947, 417.988 )
+
+[node name="musicOnPos" type="Position2D" parent="container/positionsContainer"]
+position = Vector2( 327.38, 500.99 )
+
+[node name="musicOffPos" type="Position2D" parent="container/positionsContainer"]
+position = Vector2( 418.841, 502.095 )
+
+[node name="Label" type="Label" parent="container"]
+margin_left = 260.38
+margin_top = 585.502
+margin_right = 464.38
+margin_bottom = 664.502
+custom_fonts/font = SubResource( 1 )
+text = "High Score"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="container"]
+margin_left = 129.0
+margin_top = 669.0
+margin_right = 592.0
+margin_bottom = 730.0
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/close = SubResource( 2 )
+anims/open = SubResource( 3 )
+[connection signal="button_down" from="container/btnContainer/soundOn" to="." method="_on_soundOn_button_down"]
+[connection signal="button_down" from="container/btnContainer/soundOff" to="." method="_on_soundOff_button_down"]
+[connection signal="button_down" from="container/btnContainer/musicOn" to="." method="_on_musicOn_button_down"]
+[connection signal="button_down" from="container/btnContainer/musicOff" to="." method="_on_musicOff_button_down"]
+[connection signal="button_up" from="container/btnContainer/quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="container/btnContainer/credits" to="." method="_on_credits_button_up"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

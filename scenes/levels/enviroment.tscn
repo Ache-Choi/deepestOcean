@@ -1,0 +1,173 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://scenes/levels/enviroment.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/bg.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/topSurface.png" type="Texture" id=3]
+[ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/levels/obstacles/cliff.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/levels/obstacles/fish.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/fx/hitFX.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/items/gems.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/items/gotItem.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/items/treasureBox.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/treasureBox/boxPrize.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/levels/obstacles/mines.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/treasureBox/pass/rouletteMiniGame1.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/ui/bgMusic.tscn" type="PackedScene" id=14]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 0.592157, 0.419608, 0.054902, 1 )
+albedo_texture = ExtResource( 3 )
+uv1_scale = Vector3( 0.779, 1, 1 )
+uv1_offset = Vector3( 0.083, 0, 0 )
+
+[sub_resource type="PlaneMesh" id=2]
+size = Vector2( 35, 12.5 )
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 0.694118, 0.537255, 0.207843, 1 )
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 0.667, 1, 1 )
+uv1_offset = Vector3( 0.057, 0, 0 )
+
+[sub_resource type="PlaneMesh" id=4]
+size = Vector2( 35, 100 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 0.1, 0.1, 1 )
+uv1_offset = Vector3( -0.141, 0.001, 0 )
+
+[sub_resource type="PlaneMesh" id=6]
+size = Vector2( 35, 100 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "oceanMov"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("bgOcean:material_override:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.141, 0.001, 0 ), Vector3( -0.141, 0.9, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "wallMov"
+length = 12.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("walls:material_override:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 12 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.057, 0, 0 ), Vector3( 0.057, 1, 0 ) ]
+}
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 29.7645, 4.56375, 7.61174 )
+
+[sub_resource type="Animation" id=10]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("bgCont:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 20, 0 ) ]
+}
+
+[node name="enviroment" type="Spatial"]
+script = ExtResource( 1 )
+cliffs = ExtResource( 5 )
+fish = ExtResource( 6 )
+hitFx = ExtResource( 7 )
+gems = ExtResource( 8 )
+gotItemIcon = ExtResource( 9 )
+treasureBox = ExtResource( 10 )
+treasureBoxSceneArr = [ ExtResource( 11 ), ExtResource( 13 ) ]
+mines = ExtResource( 12 )
+
+[node name="camLight" type="Spatial" parent="."]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="camLight"]
+light_color = Color( 0.996078, 0.996078, 0.996078, 1 )
+light_energy = 0.6
+
+[node name="InterpolatedCamera" type="InterpolatedCamera" parent="camLight"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.92677, 44.7117 )
+target = NodePath("../../player/camPos")
+speed = 2.0
+enabled = true
+
+[node name="bgCont" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 13, 0, 0, 0 )
+
+[node name="topSurface" type="MeshInstance" parent="bgCont"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, -0.379179, 6.215, -0.05 )
+material_override = SubResource( 1 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="walls" type="MeshInstance" parent="bgCont"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, -0.35, -49.94, -0.05 )
+material_override = SubResource( 3 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="bgOcean" type="MeshInstance" parent="bgCont"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, -48.8635, -0.111746 )
+material_override = SubResource( 5 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="oceanAnim" type="AnimationPlayer" parent="bgCont"]
+playback_speed = 0.2
+anims/oceanMov = SubResource( 7 )
+
+[node name="wallAnim" type="AnimationPlayer" parent="bgCont"]
+anims/wallMov = SubResource( 8 )
+
+[node name="destroyArea" type="Area" parent="bgCont"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.0769231, 0.00580978, 12.4092, 0.00210102 )
+
+[node name="CollisionShape" type="CollisionShape" parent="bgCont/destroyArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10858, 0 )
+shape = SubResource( 9 )
+
+[node name="player" parent="." instance=ExtResource( 4 )]
+
+[node name="startAnim" type="AnimationPlayer" parent="."]
+anims/start = SubResource( 10 )
+
+[node name="spawnTimer" type="Timer" parent="."]
+
+[node name="itemSpawner" type="Timer" parent="."]
+
+[node name="treasureTimer" type="Timer" parent="."]
+
+[node name="bgMusic" parent="." instance=ExtResource( 14 )]
+[connection signal="area_entered" from="bgCont/destroyArea" to="." method="_on_destroyArea_area_entered"]
+[connection signal="animation_finished" from="startAnim" to="." method="_on_startAnim_animation_finished"]
+[connection signal="timeout" from="spawnTimer" to="." method="_on_spawnTimer_timeout"]
+[connection signal="timeout" from="itemSpawner" to="." method="_on_itemSpawner_timeout"]
+[connection signal="timeout" from="treasureTimer" to="." method="_on_treasureTimer_timeout"]

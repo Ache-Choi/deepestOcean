@@ -1,0 +1,288 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scenes/ui/startPage.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/AGENCYB.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/images/firstPage/startPageBG.jpg" type="Texture" id=3]
+[ext_resource path="res://assets/images/firstPage/assets1280x720.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 1
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0.8, 0.686275, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0, 0.203922, 0.180392, 1 )
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0235294, 0.0235294, 0.0235294, 0.145098 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=4]
+size = 25
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 3
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 50
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=6]
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.04 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.04, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("infoContainer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -18.691, 0 ), Vector2( -18.691, 1422.36 ), Vector2( -18.6908, 1362.36 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "play"
+length = 0.4
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.06, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.06 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[node name="startPage" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bg" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 654.748, 425.904 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 566.9, 8.4, 60.8, 69.35 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnContainer" type="Node2D" parent="."]
+
+[node name="play" type="Button" parent="btnContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 254.625
+margin_top = 710.1
+margin_right = 461.625
+margin_bottom = 853.1
+rect_pivot_offset = Vector2( 476.519, 89.0374 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="settings" type="Button" parent="btnContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 194.247
+margin_top = 932.631
+margin_right = 534.247
+margin_bottom = 1043.63
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="info" type="Button" parent="btnContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 30.4387
+margin_top = 526.0
+margin_right = 113.439
+margin_bottom = 633.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quit" type="Button" parent="btnContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 602.0
+margin_top = 367.0
+margin_right = 709.0
+margin_bottom = 473.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1280.0
+margin_bottom = -720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Loading" type="HBoxContainer" parent="Control"]
+visible = false
+margin_left = 118.262
+margin_top = 1132.09
+margin_right = 618.262
+margin_bottom = 1181.09
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/Loading"]
+margin_right = 126.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 1 )
+text = "loading..."
+align = 1
+valign = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/Loading"]
+margin_left = 130.0
+margin_right = 500.0
+margin_bottom = 49.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
+
+[node name="Timer" type="Timer" parent="Control/Loading"]
+
+[node name="infoContainer" type="Node2D" parent="."]
+position = Vector2( -18.691, 0 )
+
+[node name="infoPanel" type="Sprite" parent="infoContainer"]
+modulate = Color( 0.337255, 0.788235, 0.92549, 1 )
+position = Vector2( 380.976, -704.806 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 543.12, 805.915 )
+
+[node name="Label" type="Label" parent="infoContainer"]
+margin_left = 153.0
+margin_top = -1019.39
+margin_right = 602.0
+margin_bottom = -357.391
+custom_fonts/font = SubResource( 5 )
+text = "Avoid contact with the fish, mines, rocks. Get all the coins and gems and oxygen as  possible.  Get to the bottom of the deepest ocean."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="closeInfo" type="Button" parent="infoContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 524.343
+margin_top = -1060.19
+margin_right = 613.343
+margin_bottom = -975.191
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="infoContainer"]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 570.159, -1016.94 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 565.065, 11.0025, 60.4675, 64.98 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/infoPanel = SubResource( 6 )
+anims/play = SubResource( 7 )
+[connection signal="button_up" from="btnContainer/play" to="." method="_on_play_button_up"]
+[connection signal="button_up" from="btnContainer/settings" to="." method="_on_settings_button_up"]
+[connection signal="button_up" from="btnContainer/info" to="." method="_on_info_button_up"]
+[connection signal="button_up" from="btnContainer/quit" to="." method="_on_quit_button_up"]
+[connection signal="timeout" from="Control/Loading/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="button_down" from="infoContainer/closeInfo" to="." method="_on_closeInfo_button_down"]

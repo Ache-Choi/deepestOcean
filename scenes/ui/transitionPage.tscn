@@ -1,0 +1,248 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/images/firstPage/assets1280x720.png" type="Texture" id=1]
+[ext_resource path="res://assets/fonts/SHOWG.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://scenes/ui/transitionPage.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 45
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "close"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("container:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 50 ), Vector2( 0, -1280 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("container:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3.7, 3.9, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -1280 ), Vector2( 0, -1280 ), Vector2( 0, 50 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.8, 3.7, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 200 ), Vector2( 0, -100 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.8, 2, 2.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="transitionPage" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 6.10352e-05
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -100.0
+margin_bottom = -100.0
+custom_fonts/font = SubResource( 1 )
+text = "Game Over !!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="container" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="panel" type="Sprite" parent="container"]
+modulate = Color( 0.556863, 0.956863, 1, 1 )
+position = Vector2( 365.903, 536.147 )
+scale = Vector2( 1.07033, 1.0076 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0.00643921, 1.16791, 542.021, 799.008 )
+
+[node name="next" type="Sprite" parent="container"]
+position = Vector2( 507.819, 775.565 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 652.064, 189.704, 90.4404, 97.9771 )
+
+[node name="nextBtn" type="Button" parent="container"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 455.801
+margin_top = 728.965
+margin_right = 544.801
+margin_bottom = 812.965
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="home" type="Sprite" parent="container"]
+position = Vector2( 202.933, 765.854 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 540.521, 180.66, 110.036, 108.528 )
+
+[node name="homeBtn" type="Button" parent="container"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 155.984
+margin_top = 734.705
+margin_right = 250.984
+margin_bottom = 813.705
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="missionText" type="Label" parent="container"]
+visible = false
+margin_left = 395.0
+margin_top = 135.0
+margin_right = 915.0
+margin_bottom = 298.0
+custom_fonts/font = SubResource( 2 )
+text = "Mission 1 Complete"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="scoreNeeded" type="Label" parent="container"]
+visible = false
+margin_left = 399.0
+margin_top = 199.176
+margin_right = 919.0
+margin_bottom = 362.176
+custom_fonts/font = SubResource( 3 )
+text = "Score Needed 500"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="yourScoreText" type="Label" parent="container"]
+margin_left = 94.681
+margin_top = 242.756
+margin_right = 614.681
+margin_bottom = 405.756
+custom_fonts/font = SubResource( 3 )
+text = "Your Score"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="yourScorePoints" type="Label" parent="container"]
+margin_left = 100.778
+margin_top = 359.499
+margin_right = 620.778
+margin_bottom = 522.499
+rect_pivot_offset = Vector2( 773.039, 157.965 )
+custom_fonts/font = SubResource( 4 )
+text = "650"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/close = SubResource( 5 )
+anims/inst = SubResource( 6 )
+[connection signal="button_up" from="container/nextBtn" to="." method="_on_nextBtn_button_up"]
+[connection signal="button_up" from="container/homeBtn" to="." method="_on_homeBtn_button_up"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

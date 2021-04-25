@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/gotHit.wav-b0bb156c3e97d77dc26f258e4582288d.sample"
+
+[deps]
+
+source_file="res://assets/soundMusic/gotHit.wav"
+dest_files=[ "res://.import/gotHit.wav-b0bb156c3e97d77dc26f258e4582288d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,69 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://scenes/treasureBox/boxSingle.gd" type="Script" id=1]
+[ext_resource path="res://scenes/treasureBox/images/boxSeq1/box04.PNG" type="Texture" id=2]
+[ext_resource path="res://scenes/treasureBox/images/boxSeq1/box06.PNG" type="Texture" id=3]
+[ext_resource path="res://scenes/treasureBox/images/boxSeq1/box08.PNG" type="Texture" id=4]
+[ext_resource path="res://scenes/treasureBox/images/boxSeq1/box09.PNG" type="Texture" id=5]
+[ext_resource path="res://scenes/treasureBox/images/boxSeq1/box02.PNG" type="Texture" id=6]
+[ext_resource path="res://scenes/treasureBox/images/boxSeq1/box03.png" type="Texture" id=7]
+[ext_resource path="res://scenes/treasureBox/images/boxSeq1/box12.PNG" type="Texture" id=8]
+[ext_resource path="res://scenes/treasureBox/images/boxSeq1/box13.PNG" type="Texture" id=9]
+[ext_resource path="res://scenes/treasureBox/images/assets1.png" type="Texture" id=10]
+[ext_resource path="res://scenes/treasureBox/images/boxSeq1/00.png" type="Texture" id=11]
+[ext_resource path="res://scenes/treasureBox/images/boxSeq1/box14.PNG" type="Texture" id=12]
+[ext_resource path="res://scenes/treasureBox/images/boxSeq1/box11.PNG" type="Texture" id=13]
+[ext_resource path="res://scenes/treasureBox/images/boxSeq1/box07.PNG" type="Texture" id=14]
+[ext_resource path="res://scenes/treasureBox/images/boxSeq1/box01.png" type="Texture" id=15]
+[ext_resource path="res://scenes/treasureBox/images/boxSeq1/box10.PNG" type="Texture" id=16]
+[ext_resource path="res://scenes/treasureBox/images/boxSeq1/box05.PNG" type="Texture" id=17]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 15 ), ExtResource( 15 ), ExtResource( 15 ), ExtResource( 15 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 17 ), ExtResource( 3 ), ExtResource( 14 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 12 ) ],
+"loop": false,
+"name": "box",
+"speed": 17.0
+} ]
+
+[node name="boxSingle" type="Node2D"]
+scale = Vector2( 0.3, 0.3 )
+script = ExtResource( 1 )
+
+[node name="bg" type="ColorRect" parent="."]
+margin_left = 38.0
+margin_top = 22.0
+margin_right = 338.0
+margin_bottom = 330.0
+color = Color( 0, 0.168627, 0.207843, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gem" type="Sprite" parent="."]
+position = Vector2( 185.59, 180.619 )
+scale = Vector2( 1, 0.849564 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 302, 49, 197, 184 )
+
+[node name="boxAnim" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "box"
+centered = false
+
+[node name="Button" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 42.0
+margin_top = 36.0
+margin_right = 329.0
+margin_bottom = 319.0
+disabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+[connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

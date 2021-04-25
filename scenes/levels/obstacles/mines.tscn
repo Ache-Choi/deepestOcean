@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/levels/obstacles/cliffMat.tres" type="Material" id=1]
+[ext_resource path="res://scenes/levels/obstacles/mines.gd" type="Script" id=2]
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 4, 4 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 1.43905, 1.87835, 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "animate"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeshInstance:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.2, 2, 3, 4 ),
+"transitions": PoolRealArray( 0.466516, 1.27456, 0.615572, 1.18921, 0.435275 ),
+"update": 0,
+"values": [ Vector3( -0.19924, 0.0766305, 0 ), Vector3( 0.199239, -0.168588, 0 ), Vector3( 0.180628, 0.218944, 0 ), Vector3( -0.144375, -0.130852, 0 ), Vector3( -0.19924, 0.0766305, 0 ) ]
+}
+
+[node name="mines" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, -0.19924, 0.0766305, 0 )
+material_override = ExtResource( 1 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Area" type="Area" parent="." groups=[
+"obstacle",
+]]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0344281, 0 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/animate = SubResource( 3 )
